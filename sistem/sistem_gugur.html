@@ -6,13 +6,22 @@
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-  <h1 id="judulSistem">Judul Turnamen - Sistem</h1>
-  <p>Halaman ini menampilkan aturan atau bracket untuk sistem yang dipilih.</p>
+  <!-- Judul Turnamen -->
+  <h1 id="judulTurnamen">Judul Turnamen</h1>
+  <!-- Sistem Pertandingan -->
+  <h2 id="namaSistem">Sistem Pertandingan</h2>
+
   <a href="../hasil.html">← Kembali ke Hasil</a>
+
   <script>
     const judul = localStorage.getItem("judulHalaman") || "Judul Turnamen";
     const sistem = localStorage.getItem("sistemTurnamen") || "Sistem Pertandingan";
-    document.getElementById("judulSistem").textContent = `${judul} - ${sistem}`;
+
+    // Set konten
+    document.getElementById("judulTurnamen").textContent = judul;
+    document.getElementById("namaSistem").textContent = sistem;
+
+    // Set judul browser
     document.title = `${judul} - ${sistem}`;
   </script>
 </body>
