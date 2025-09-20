@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Halaman Sistem</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <h1 id="judulSistem">Judul Turnamen - Sistem</h1>
+  <p>Halaman ini menampilkan aturan atau bracket untuk sistem yang dipilih.</p>
+  <a href="../hasil.html">← Kembali ke Hasil</a>
+  <script>
+    const judul = localStorage.getItem("judulHalaman") || "Judul Turnamen";
+    const sistem = localStorage.getItem("sistemTurnamen") || "Sistem Pertandingan";
+    document.getElementById("judulSistem").textContent = `${judul} - ${sistem}`;
+    document.title = `${judul} - ${sistem}`;
+  </script>
+</body>
+</html>
