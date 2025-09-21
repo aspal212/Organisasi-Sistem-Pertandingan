@@ -78,7 +78,7 @@ header h2 { margin:0; color:#444; font-weight:normal; }
 }
 
 /* Preview jumlah peserta per grup */
-#hasilPreview { font-weight:bold; margin-bottom:1rem; color:#1e40af; }
+#sistem_setengah_kompetisiPreview { font-weight:bold; margin-bottom:1rem; color:#1e40af; }
 
 /* Input peserta & tombol upload */
 #inputPesertaContainer {
@@ -189,7 +189,7 @@ header h2 { margin:0; color:#444; font-weight:normal; }
     <!-- Konten utama -->
     <div class="main-content" id="mainContent">
         <!-- Preview jumlah peserta per grup -->
-        <div id="hasilPreview"></div>
+        <div id="sistem_setengah_kompetisiPreview"></div>
 
         <!-- Input peserta -->
         <div id="inputPesertaContainer">
@@ -260,21 +260,21 @@ window.addEventListener("click", e=>{ if(e.target===modal) modal.style.display="
 // Simpan jumlah peserta
 const btnSimpan = document.getElementById("btnSimpan");
 const inputJumlah = document.getElementById("jumlahPeserta");
-const hasilPreview = document.getElementById("hasilPreview");
-function tampilkanHasil() {
+const sistem_setengah_kompetisiPreview = document.getElementById("sistem_setengah_kompetisiPreview");
+function tampilkansistem_setengah_kompetisi() {
     const jumlah = inputJumlah.value || localStorage.getItem("jumlahPesertaPerGrup") || 0;
-    hasilPreview.textContent = `Jumlah Peserta Per Grup: ${jumlah}`;
+    sistem_setengah_kompetisiPreview.textContent = `Jumlah Peserta Per Grup: ${jumlah}`;
 }
 btnSimpan.addEventListener("click", ()=>{
     if(inputJumlah.value) localStorage.setItem("jumlahPesertaPerGrup", inputJumlah.value);
-    tampilkanHasil();
+    tampilkansistem_setengah_kompetisi();
     modal.style.display="none";
 });
 window.addEventListener("load", ()=>{
     const jumlahSimpan = localStorage.getItem("jumlahPesertaPerGrup");
     if(jumlahSimpan) {
         inputJumlah.value = jumlahSimpan;
-        tampilkanHasil();
+        tampilkansistem_setengah_kompetisi();
     }
 });
 

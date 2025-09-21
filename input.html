@@ -18,7 +18,7 @@
       <option value="Sistem Setengah Kompetisi">Sistem Setengah Kompetisi</option>
       <option value="Sistem Kompetisi Penuh/Full Season">Sistem Kompetisi Penuh/Full Season</option>
     </select>
-    <button onclick="simpanData()">Simpan & Lihat Hasil</button>
+    <button onclick="simpanData()">Simpan & Lihat sistem_setengah_kompetisi</button>
   </div>
   <script>
     function simpanData() {
@@ -27,7 +27,7 @@
       if(judul) localStorage.setItem("judulHalaman", judul);
       else localStorage.removeItem("judulHalaman");
       localStorage.setItem("sistemTurnamen", sistem);
-      window.location.href = "hasil.html";
+      window.location.href = "sistem_setengah_kompetisi.html";
     }
   </script>
 </body>
