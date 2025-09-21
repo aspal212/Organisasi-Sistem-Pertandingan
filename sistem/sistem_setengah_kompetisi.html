@@ -1,397 +1,46 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Halaman Sistem</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #eef2ff;
-}
-/* Header */
-header {
-    background: white;
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-header h1 { margin:0; color:#2563eb; }
-header h2 { margin:0; color:#444; font-weight:normal; }
-
-/* Layout utama */
-.layout { display:flex; margin:1rem 2rem 2rem 2rem; position:relative; }
-/* Sidebar */
-.sidebar {
-    width:250px;
-    background:#2563eb;
-    color:white;
-    padding:1rem;
-    transition: width 0.3s ease, padding 0.3s ease;
-    flex-shrink:0;
-    overflow:hidden;
-    position:relative;
-}
-.sidebar.hide { width:0; padding:0; }
-.sidebar h3 { margin-top:0; margin-bottom:1rem; color:#fff; }
-.sidebar ul { list-style:none; padding:0; margin:0; }
-.sidebar li { margin:0.5rem 0; }
-.sidebar a { color:#fff; text-decoration:none; cursor:pointer; }
-
-/* Tombol toggle */
-#toggleSidebar {
-    position:absolute;
-    left:0;
-    top:50%;
-    transform:translate(-50%, -50%);
-    background:#2563eb;
-    color:white;
-    border:1px solid #fff;
-    border-radius:50%;
-    width:30px;
-    height:30px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
-    box-shadow:0 2px 6px rgba(0,0,0,0.2);
-    z-index:10;
-    transition: background 0.3s ease;
-}
-
-/* Konten utama */
-.main-content {
-    flex:1;
-    padding:1rem 2rem;
-    position:relative;
-    min-height:400px;
-    background:#fff;
-    border-radius:10px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-/* Preview jumlah peserta per grup */
-#sistem_setengah_kompetisiPreview { font-weight:bold; margin-bottom:1rem; color:#1e40af; }
-
-/* Input peserta & tombol upload */
-#inputPesertaContainer {
-    margin-bottom:1rem;
-}
-#inputPesertaContainer label { font-weight:bold; display:block; margin-top:1rem; margin-bottom:0.3rem; }
-#inputPesertaContainer div { display:flex; gap:0.5rem; margin-top:0.3rem; }
-#inputPesertaContainer input { flex:1; padding:0.4rem; border-radius:5px; border:1px solid #ccc; }
-#inputPesertaContainer button { padding:0.4rem 0.8rem; background:#2563eb; color:#fff; border:none; border-radius:5px; cursor:pointer; }
-#inputPesertaContainer button:hover { background:#1e40af; }
-
-/* Container grup horizontal */
-#grupContainer { display:flex; gap:1rem; }
-
-/* Kotak grup */
-.grup-box { display:flex; flex-direction:column; background:#f3f4f6; padding:0.5rem; border-radius:5px; }
-.grup-box h4 { margin:0 0 0.5rem 0; text-align:center; font-weight:bold; }
-
-/* Kotak peserta */
-.peserta-box {
-    display:flex;
-    align-items:center;
-    background:#fff;
-    border:1px solid #2563eb;
-    border-radius:5px;
-    padding:0.3rem 0.5rem;
-    margin-bottom:0.3rem;
-    font-weight:bold;
-}
-.peserta-text { text-transform: capitalize; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
-
-/* Tombol edit & hapus container */
-.peserta-btns {
-    display:flex;
-    gap:0.2rem;
-    margin-left:auto; /* push ke kanan */
-}
-.peserta-btns button {
-    cursor:pointer;
-    border:none;
-    border-radius:3px;
-    width:24px;
-    height:24px;
-    font-size:12px;
-    color:#fff;
-}
-.peserta-btns button.edit-btn { background:#2563eb; }
-.peserta-btns button.del-btn { background:#ef4444; }
-
-/* Footer */
-.footer-text {
-    position:fixed;
-    bottom:1rem;
-    right:1rem;
-    text-align:right;
-    background:#fff;
-    padding:0.5rem 1rem;
-    border-radius:5px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
-    font-size:14px;
-}
-
-/* Popup Setting & Upload */
-.modal {
-    display:none;
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: rgba(0,0,0,0.5);
-    justify-content:center;
-    align-items:center;
-    z-index:200;
-}
-.modal-content {
-    background:#fff;
-    padding:1.5rem 2rem;
-    border-radius:10px;
-    width:350px;
-    max-width:90%;
-    position:relative;
-    box-shadow:0 4px 12px rgba(0,0,0,0.2);
-    text-align:left;
-}
-.modal-close { position:absolute; top:0.5rem; right:0.5rem; font-size:1.2rem; font-weight:bold; color:#333; cursor:pointer; }
-.modal-content input, .modal-content button { width:100%; margin-top:0.5rem; }
-.modal-content a { display:block; margin-bottom:0.5rem; color:#2563eb; text-decoration:underline; font-size:14px; }
-</style>
+  <meta charset="UTF-8">
+  <title>Input Data Turnamen</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <div class="container">
+    <h2>Masukkan Data Turnamen</h2>
+    
+    <label for="judulInput">Judul Turnamen:</label>
+    <input type="text" id="judulInput" placeholder="Ketik judul di sini..." />
+    
+    <label for="sistemInput">Pilih Sistem Pertandingan:</label>
+    <select id="sistemInput">
+      <option value="sistem_gugur.html">Sistem Gugur</option>
+      <option value="sistem_gugur_swiss.html">Sistem Gugur Swiss</option>
+      <option value="sistem_gugur_ganda.html">Sistem Gugur Ganda</option>
+      <option value="sistem_setengah_kompetisi.html">Sistem Setengah Kompetisi</option>
+      <option value="sistem_kompetisi_penuh.html">Sistem Kompetisi Penuh/Full Season</option>
+    </select>
+    
+    <button onclick="simpanData()">Simpan & Lihat</button>
+  </div>
 
-<header>
-    <div>
-        <h1 id="judulTurnamen">Judul Turnamen</h1>
-        <h2 id="namaSistem">Sistem Pertandingan</h2>
-    </div>
-</header>
+  <script>
+    function simpanData() {
+      const judul = document.getElementById("judulInput").value.trim();
+      const halaman = document.getElementById("sistemInput").value;
 
-<div class="layout">
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <h3>Menu Grup</h3>
-        <ul>
-            <li><a id="btnSetting">Setting</a></li>
-        </ul>
-    </div>
-    <div id="toggleSidebar">&lt;</div>
+      if (judul) {
+        localStorage.setItem("judulHalaman", judul);
+      } else {
+        localStorage.removeItem("judulHalaman");
+      }
+      // simpan juga nama sistem (text option)
+      const sistemText = document.getElementById("sistemInput").options[document.getElementById("sistemInput").selectedIndex].text;
+      localStorage.setItem("sistemTurnamen", sistemText);
 
-    <!-- Konten utama -->
-    <div class="main-content" id="mainContent">
-        <!-- Preview jumlah peserta per grup -->
-        <div id="sistem_setengah_kompetisiPreview"></div>
-
-        <!-- Input peserta -->
-        <div id="inputPesertaContainer">
-            <label for="namaPeserta">Input Peserta</label>
-            <div>
-                <input type="text" id="namaPeserta" placeholder="Nama peserta">
-                <button id="btnInputPeserta">Input</button>
-                <button id="btnUploadPeserta">Upload Template</button>
-            </div>
-        </div>
-
-        <!-- Container grup horizontal -->
-        <div id="grupContainer"></div>
-    </div>
-</div>
-
-<!-- Footer -->
-<div class="footer-text">← Kembali</div>
-
-<!-- Popup Setting -->
-<div class="modal" id="settingModal">
-    <div class="modal-content">
-        <span class="modal-close" id="closeModal">&times;</span>
-        <h3>Pengaturan Sistem</h3>
-        <form id="formSetting">
-            <label for="jumlahPeserta">Jumlah Peserta Per Grup</label>
-            <input type="number" id="jumlahPeserta" placeholder="Jumlah peserta Per Grup" min="1">
-            <button type="button" id="btnSimpan">Simpan</button>
-        </form>
-    </div>
-</div>
-
-<!-- Popup Upload -->
-<div class="modal" id="uploadModal">
-    <div class="modal-content">
-        <span class="modal-close" id="closeUpload">&times;</span>
-        <h3>Upload Template Peserta</h3>
-        <a href="#" id="downloadTemplate" download="template_peserta.txt">Download Template</a>
-        <input type="file" id="fileUpload" accept=".txt">
-        <button id="btnUploadFile">Upload</button>
-    </div>
-</div>
-
-<script>
-// Judul & sistem
-const judul = localStorage.getItem("judulHalaman") || "Judul Turnamen";
-const sistem = localStorage.getItem("sistemTurnamen") || "Sistem Pertandingan";
-document.getElementById("judulTurnamen").textContent = judul;
-document.getElementById("namaSistem").textContent = sistem;
-document.title = `${judul} - ${sistem}`;
-
-// Sidebar toggle
-const toggleBtn = document.getElementById("toggleSidebar");
-const sidebar = document.getElementById("sidebar");
-toggleBtn.addEventListener("click", ()=> {
-    sidebar.classList.toggle("hide");
-    toggleBtn.textContent = sidebar.classList.contains("hide") ? ">" : "<";
-});
-
-// Popup Setting
-const btnSetting = document.getElementById("btnSetting");
-const modal = document.getElementById("settingModal");
-const closeModal = document.getElementById("closeModal");
-btnSetting.addEventListener("click", ()=>{ modal.style.display="flex"; });
-closeModal.addEventListener("click", ()=>{ modal.style.display="none"; });
-window.addEventListener("click", e=>{ if(e.target===modal) modal.style.display="none"; });
-
-// Simpan jumlah peserta
-const btnSimpan = document.getElementById("btnSimpan");
-const inputJumlah = document.getElementById("jumlahPeserta");
-const sistem_setengah_kompetisiPreview = document.getElementById("sistem_setengah_kompetisiPreview");
-function tampilkansistem_setengah_kompetisi() {
-    const jumlah = inputJumlah.value || localStorage.getItem("jumlahPesertaPerGrup") || 0;
-    sistem_setengah_kompetisiPreview.textContent = `Jumlah Peserta Per Grup: ${jumlah}`;
-}
-btnSimpan.addEventListener("click", ()=>{
-    if(inputJumlah.value) localStorage.setItem("jumlahPesertaPerGrup", inputJumlah.value);
-    tampilkansistem_setengah_kompetisi();
-    modal.style.display="none";
-});
-window.addEventListener("load", ()=>{
-    const jumlahSimpan = localStorage.getItem("jumlahPesertaPerGrup");
-    if(jumlahSimpan) {
-        inputJumlah.value = jumlahSimpan;
-        tampilkansistem_setengah_kompetisi();
+      // arahkan ke halaman sesuai pilihan
+      window.location.href = halaman;
     }
-});
-
-// Input peserta
-const btnInputPeserta = document.getElementById("btnInputPeserta");
-const namaPesertaInput = document.getElementById("namaPeserta");
-btnInputPeserta.addEventListener("click", tambahPeserta);
-namaPesertaInput.addEventListener("keypress", e=>{
-    if(e.key==="Enter") tambahPeserta();
-});
-function capitalizeFirst(str){ return str.charAt(0).toUpperCase() + str.slice(1); }
-function tambahPeserta(){
-    const nama = namaPesertaInput.value.trim();
-    if(!nama) return;
-    const peserta = JSON.parse(localStorage.getItem("daftarPeserta")) || [];
-    peserta.push(capitalizeFirst(nama));
-    localStorage.setItem("daftarPeserta", JSON.stringify(peserta));
-    namaPesertaInput.value="";
-    renderGrupPeserta();
-}
-
-// Grup container
-const grupContainer = document.getElementById("grupContainer");
-function renderGrupPeserta(){
-    grupContainer.innerHTML="";
-    const peserta = JSON.parse(localStorage.getItem("daftarPeserta")) || [];
-    const jumlahPerGrup = parseInt(localStorage.getItem("jumlahPesertaPerGrup")) || 1;
-    const grupCount = Math.ceil(peserta.length / jumlahPerGrup);
-    let maxLen = 0;
-    peserta.forEach(p=>{ if(p.length>maxLen) maxLen=p.length; });
-
-    for(let g=0; g<grupCount; g++){
-        const grupBox = document.createElement("div");
-        grupBox.className="grup-box";
-        grupBox.style.minWidth = (maxLen*8 + 80) + "px";
-
-        const grupName = String.fromCharCode(65+g);
-        const h4 = document.createElement("h4"); h4.textContent=`Grup ${grupName}`; grupBox.appendChild(h4);
-
-        const grupPeserta = peserta.slice(g*jumlahPerGrup,(g+1)*jumlahPerGrup);
-        grupPeserta.forEach((p,index)=>{
-            const div = document.createElement("div");
-            div.className="peserta-box";
-
-            const span = document.createElement("span");
-            span.className="peserta-text";
-            span.textContent=p;
-            div.appendChild(span);
-
-            const btns = document.createElement("div");
-            btns.className="peserta-btns";
-
-            const editBtn=document.createElement("button");
-            editBtn.textContent="✎";
-            editBtn.className="edit-btn";
-            editBtn.title="Edit";
-            editBtn.addEventListener("click", ()=>{
-                const newNama = prompt("Edit nama peserta:", p);
-                if(newNama){
-                    peserta[g*jumlahPerGrup+index]=capitalizeFirst(newNama.trim());
-                    localStorage.setItem("daftarPeserta", JSON.stringify(peserta));
-                    renderGrupPeserta();
-                }
-            });
-
-            const delBtn=document.createElement("button");
-            delBtn.textContent="X";
-            delBtn.className="del-btn";
-            delBtn.title="Hapus";
-            delBtn.addEventListener("click", ()=>{
-                peserta.splice(g*jumlahPerGrup+index,1);
-                localStorage.setItem("daftarPeserta", JSON.stringify(peserta));
-                renderGrupPeserta();
-            });
-
-            btns.appendChild(editBtn);
-            btns.appendChild(delBtn);
-            div.appendChild(btns);
-            grupBox.appendChild(div);
-        });
-        grupContainer.appendChild(grupBox);
-    }
-}
-window.addEventListener("load", renderGrupPeserta);
-
-// Upload Popup
-const btnUploadPeserta = document.getElementById("btnUploadPeserta");
-const uploadModal = document.getElementById("uploadModal");
-const closeUpload = document.getElementById("closeUpload");
-btnUploadPeserta.addEventListener("click", ()=>{ uploadModal.style.display="flex"; });
-closeUpload.addEventListener("click", ()=>{ uploadModal.style.display="none"; });
-window.addEventListener("click", e=>{ if(e.target===uploadModal) uploadModal.style.display="none"; });
-
-// Download template
-document.getElementById("downloadTemplate").addEventListener("click", ()=>{
-    const template="NamaPeserta1\nNamaPeserta2\nNamaPeserta3";
-    const blob = new Blob([template], {type:"text/plain"});
-    const link = document.getElementById("downloadTemplate");
-    link.href = URL.createObjectURL(blob);
-});
-
-// Upload file
-document.getElementById("btnUploadFile").addEventListener("click", ()=>{
-    const file = document.getElementById("fileUpload").files[0];
-    if(!file){ alert("Pilih file!"); return; }
-    const reader = new FileReader();
-    reader.onload = function(e){
-        const lines = e.target.result.split(/\r?\n/).map(l=>l.trim()).filter(l=>l);
-        const peserta = JSON.parse(localStorage.getItem("daftarPeserta")) || [];
-        lines.forEach(l=>peserta.push(capitalizeFirst(l)));
-        localStorage.setItem("daftarPeserta", JSON.stringify(peserta));
-        renderGrupPeserta();
-        uploadModal.style.display="none";
-    };
-    reader.readAsText(file);
-});
-</script>
-
+  </script>
 </body>
 </html>
