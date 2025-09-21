@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Input Data Turnamen</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Masukkan Data Turnamen</h2>
+    <label for="judulInput">Judul Turnamen:</label>
+    <input type="text" id="judulInput" placeholder="Ketik judul di sini..." />
+    <label for="sistemInput">Pilih Sistem Pertandingan:</label>
+    <select id="sistemInput">
+      <option value="Sistem Gugur">Sistem Gugur</option>
+      <option value="Sistem Gugur Swiss">Sistem Gugur Swiss</option>
+      <option value="Sistem Gugur Ganda">Sistem Gugur Ganda</option>
+      <option value="Sistem Setengah Kompetisi">Sistem Setengah Kompetisi</option>
+      <option value="Sistem Kompetisi Penuh/Full Season">Sistem Kompetisi Penuh/Full Season</option>
+    </select>
+    <button onclick="simpanData()">Simpan & Lihat Hasil</button>
+  </div>
+  <script>
+    function simpanData() {
+      const judul = document.getElementById("judulInput").value.trim();
+      const sistem = document.getElementById("sistemInput").value;
+      if(judul) localStorage.setItem("judulHalaman", judul);
+      else localStorage.removeItem("judulHalaman");
+      localStorage.setItem("sistemTurnamen", sistem);
+      window.location.href = "hasil.html";
+    }
+  </script>
+</body>
+</html>
