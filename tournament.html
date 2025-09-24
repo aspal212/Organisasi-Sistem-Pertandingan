@@ -1,11 +1,157 @@
 <!DOCTYPE html>
-<html lang='id'>
+<html lang="id">
+
 <head>
-  <meta charset='UTF-8'>
-  <title>Tournament</title>
-  <link rel='stylesheet' href='css/style.css'>
+  <meta charset="UTF-8">
+  <title>Input Data Turnamen | Organisasi Sistem Pertandingan</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Sama persis dengan style global */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; }
+    body { display: flex; flex-direction: column; min-height: 100vh; background: #f5f5f5; }
+
+    header { background-color: #4a90e2; color: #fff; padding: 1rem; text-align: center; font-size: 1.5rem; }
+    footer { background-color: #333; color: #ddd; padding: 0.8rem; text-align: center; font-size: 0.9rem; }
+
+    .content-wrapper { flex: 1; display: flex; flex-direction: row; }
+    nav.sidebar { width: 220px; background-color: #f0f0f0; border-right: 1px solid #ddd; overflow-y: auto; }
+    nav.sidebar ul { list-style: none; }
+    nav.sidebar li { border-bottom: 1px solid #e0e0e0; }
+    nav.sidebar a { display: block; padding: 0.9rem 1rem; color: #333; text-decoration: none; font-size: 0.95rem; }
+    nav.sidebar a:hover, nav.sidebar a.active { background-color: #e2e6f0; font-weight: bold; }
+
+    main { flex: 1; padding: 2rem; background-color: #fafafa; display: flex; justify-content: center; align-items: center; }
+
+    .sidebar-toggle { display: none; background: #4a90e2; color: #fff; border: none; padding: 0.8rem 1rem; width: 100%; text-align: left; font-size: 1rem; cursor: pointer; }
+
+    @media (max-width: 768px) {
+      .content-wrapper { flex-direction: column; }
+      nav.sidebar { display: none; width: 100%; border-right: none; border-bottom: 1px solid #ddd; }
+      nav.sidebar.active { display: block; }
+      .sidebar-toggle { display: block; }
+    }
+
+    /* ==== Form Container ==== */
+    .container {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .container h2 { margin-bottom: 1rem; color: #333; }
+
+    label { display: block; margin-bottom: .5rem; font-weight: bold; }
+    input[type="text"], select {
+      width: 100%;
+      padding: .6rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: .6rem 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover { background: #1d4ed8; }
+  </style>
 </head>
+
 <body>
-  <h1>Tournament Page</h1>
+  <!-- Header -->
+  <header>
+    <h1>ORGANISASI SISTEM PERTANDINGAN</h1>
+  </header>
+
+  <!-- Sidebar Toggle (mobile) -->
+  <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
+
+  <!-- Wrapper -->
+  <div class="content-wrapper">
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebarMenu">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tournament.html" class="active">Input Turnamen</a></li>
+        <li><a href="about.html">Tentang</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main -->
+    <main>
+      <div class="container">
+        <h2>Masukkan Data Turnamen</h2>
+
+        <!-- Input Judul -->
+        <label for="judulInput">Judul Turnamen:</label>
+        <input type="text" id="judulInput" placeholder="Ketik judul di sini..." />
+
+        <!-- Dropdown Sistem -->
+        <label for="sistemInput">Pilih Sistem Pertandingan:</label>
+        <select id="sistemInput">
+          <option value="Sistem Gugur">Sistem Gugur</option>
+          <option value="Sistem Gugur Swiss">Sistem Gugur Swiss</option>
+          <option value="Sistem Gugur Ganda">Sistem Gugur Ganda</option>
+          <option value="Sistem Setengah Kompetisi">Sistem Setengah Kompetisi</option>
+          <option value="Sistem Kompetisi Penuh/Full Season">Sistem Kompetisi Penuh/Full Season</option>
+        </select>
+
+        <button onclick="simpanData()">Simpan & Lihat Hasil</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Nama Anda. Semua hak dilindungi.
+  </footer>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebarMenu').classList.toggle('active');
+    }
+
+    function simpanData() {
+      const judul = document.getElementById("judulInput").value.trim();
+      const sistem = document.getElementById("sistemInput").value;
+
+      if (judul) {
+        localStorage.setItem("judulHalaman", judul);
+      } else {
+        localStorage.removeItem("judulHalaman");
+      }
+
+      localStorage.setItem("sistemTurnamen", sistem);
+
+      // Arahkan ke halaman sesuai sistem
+      switch (sistem) {
+        case "Sistem Gugur":
+          window.location.href = "sistem_gugur.html";
+          break;
+        case "Sistem Gugur Swiss":
+          window.location.href = "sistem_gugur_swiss.html";
+          break;
+        case "Sistem Gugur Ganda":
+          window.location.href = "sistem_gugur_ganda.html";
+          break;
+        case "Sistem Setengah Kompetisi":
+          window.location.href = "sistem_setengah_kompetisi.html";
+          break;
+        case "Sistem Kompetisi Penuh/Full Season":
+          window.location.href = "sistem_kompetisi_full.html";
+          break;
+        default:
+          window.location.href = "hasil.html";
+      }
+    }
+  </script>
 </body>
 </html>
