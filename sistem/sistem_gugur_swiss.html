@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistem Gugur Swiss - Turnamen</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Sistem Gugur Swiss</h1>
+  </header>
+
+  <main>
+    <section class="container">
+      <div class="card">
+        <h2>Nama Turnamen:</h2>
+        <p id="tournamentNameDisplay">Memuat...</p>
+
+        <h3>Informasi Sistem:</h3>
+        <p>Peserta dinyatakan gugur apabila</p>
+      </div>
+    </section>Sistem Swiss adalah format turnamen di mana peserta dipasangkan untuk bertanding melawan mereka yang memiliki catatan serupa dari putaran sebelumnya, berlangsung melalui beberapa putaran tanpa eliminasi. Setelah menyelesaikan semua putaran, mudah untuk membuat turnamen eliminasi bagi peserta peringkat teratas.
+    <section class="container">
+      <div class="card">
+        <h3>Deskripsi Sistem:</h3>
+        <p>Sistem Swiss adalah format turnamen di mana peserta dipasangkan untuk bertanding melawan mereka yang memiliki catatan serupa dari putaran sebelumnya, berlangsung melalui beberapa putaran tanpa eliminasi. Setelah menyelesaikan semua putaran, mudah untuk membuat turnamen eliminasi bagi peserta peringkat teratas.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 @a_imron. Semua hak dilindungi.
+  </footer>
+
+  <script>
+    // Ambil nama turnamen dari localStorage
+    const name = localStorage.getItem('tournamentName');
+    document.getElementById('tournamentNameDisplay').textContent = name || "Belum ada turnamen";
+  </script>
+</body>
+</html>

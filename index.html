@@ -20,6 +20,13 @@
         <!-- Tombol 2D -->
         <button class="btn-2d" id="openModal">Buat Turnamen</button>
       </div>
+
+      <!-- Area untuk menampilkan hasil turnamen sementara -->
+      <div id="tournamentResult" class="card" style="display:none; margin-top:20px;">
+        <h3>Turnamen Dibuat:</h3>
+        <p><b>Nama Turnamen:</b> <span id="resultName"></span></p>
+        <p><b>Format Turnamen:</b> <span id="resultFormat"></span></p>
+      </div>
     </section>
   </main>
 
@@ -38,10 +45,11 @@
       <label for="tournamentFormat">Format Turnamen:</label>
       <select id="tournamentFormat">
         <option value="">-- Pilih Sistem --</option>
-        <option value="gugur">Sistem Gugur</option>
-        <option value="gugurGanda">Gugur Ganda</option>
-        <option value="setengah">Setengah Kompetisi</option>
-        <option value="penuh">Kompetisi Penuh</option>
+        <option value="Sistem Gugur Tunggal">Sistem Gugur Tunggal</option>
+        <option value="Sistem Gugur Ganda">Sistem Gugur Ganda</option>
+        <option value="Sistem Gugur Swiss">Sistem Gugur Swiss</option>
+        <option value="Sistem Setengah Kompetisi">Sistem Setengah Kompetisi</option>
+        <option value="Sistem Kompetisi Penuh">Sistem Kompetisi Penuh</option>
       </select>
 
       <div id="descriptionBox" class="description-box">

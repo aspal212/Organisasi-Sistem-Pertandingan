@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistem Gugur Ganda - Turnamen</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Sistem Gugur Ganda</h1>
+  </header>
+
+  <main>
+    <section class="container">
+      <div class="card">
+        <h2>Nama Turnamen:</h2>
+        <p id="tournamentNameDisplay">Memuat...</p>
+
+        <h3>Informasi Sistem:</h3>
+        <p>Peserta dinyatakan gugur apabila telah mengalami kekalahan sebanyak 2 kali.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 @a_imron. Semua hak dilindungi.
+  </footer>
+
+  <script>
+    // Ambil nama turnamen dari localStorage
+    const name = localStorage.getItem('tournamentName');
+    document.getElementById('tournamentNameDisplay').textContent = name || "Belum ada turnamen";
+  </script>
+</body>
+</html>
