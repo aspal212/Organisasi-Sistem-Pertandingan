@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Organisasi Sistem Pertandingan</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <h1>ORGANISASI SISTEM PERTANDINGAN</h1>
+  </header>
+
+  <!-- Sidebar Toggle (mobile) -->
+  <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
+
+  <!-- Wrapper -->
+  <div class="content-wrapper">
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebarMenu">
+      <ul>
+        <li><a href="index.html" class="active">Beranda</a></li>
+        <li><a href="tournament.html">Sistem Pertandingan</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main -->
+    <main>
+      <h2>Tentang Kami</h2>
+      <body>
+    <div class="container">
+        <h2>Masukkan Data Turnamen</h2>
+
+        <!-- Input Judul -->
+        <label for="judulInput">Judul Turnamen:</label>
+        <input type="text" id="judulInput" placeholder="Ketik judul di sini..." />
+
+        <!-- Dropdown Sistem -->
+        <label for="sistemInput">Pilih Sistem Pertandingan:</label>
+        <select id="sistemInput">
+            <option value="Sistem Gugur">Sistem Gugur</option>
+            <option value="Sistem Gugur Swiss">Sistem Gugur Swiss</option>
+            <option value="Sistem Gugur Ganda">Sistem Gugur Ganda</option>
+            <option value="Sistem Setengah Kompetisi">Sistem Setengah Kompetisi</option>
+            <option value="Sistem Kompetisi Penuh/Full Season">Sistem Kompetisi Penuh/Full Season</option>
+        </select>
+        <button onclick="simpanData()">Simpan & Lihat Hasil</button>
+    </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 @a_imron. Semua hak dilindungi.
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

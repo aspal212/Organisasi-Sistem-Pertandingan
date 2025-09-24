@@ -1,3 +1,2 @@
-# Tournament Web
+# Organisasi-Sistem-Pertandingan
 
-Struktur dasar aplikasi turnamen berbasis web.

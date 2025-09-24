@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",      // Prettier - formatter kode
+    "ritwickdey.liveserver",       // Live Server - jalankan HTML di browser secara live
+    "dbaeumer.vscode-eslint",      // ESLint - cek kualitas kode JS
+    "stylelint.vscode-stylelint",  // Stylelint - cek kualitas kode CSS
+    "davidanson.vscode-markdownlint" // Markdownlint - cek kualitas README.md
+  ],
+  "unwantedRecommendations": [
+    "hookyqr.beautify" // tidak disarankan karena bisa konflik dengan Prettier
+  ]
+}

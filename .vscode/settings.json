@@ -1,3 +1,31 @@
 {
-    "liveServer.settings.port": 5501
+  // Gunakan 2 spasi untuk indentasi
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+
+  // Format otomatis saat save
+  "editor.formatOnSave": true,
+
+  // Bahasa default untuk file baru HTML/CSS/JS
+  "files.associations": {
+    "*.html": "html",
+    "*.css": "css",
+    "*.js": "javascript",
+    "*.json": "json"
+  },
+
+  // Atur Prettier (jika extension terpasang)
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.tabWidth": 2,
+
+  // Hide folder yang tidak perlu di explorer
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+
+  // Live Server default port
+  "liveServer.settings.port": 5500
 }
