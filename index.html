@@ -4,116 +4,6 @@
   <meta charset="UTF-8">
   <title>Organisasi Sistem Pertandingan</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* ==== Reset dasar ==== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header {
-      background-color: #4a90e2;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-      font-size: 1.5rem;
-    }
-
-    footer {
-      background-color: #333;
-      color: #ddd;
-      padding: 0.8rem;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    /* ==== Content wrapper ==== */
-    .content-wrapper {
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-    }
-
-    /* ==== Sidebar ==== */
-    nav.sidebar {
-      width: 220px;
-      background-color: #f0f0f0;
-      border-right: 1px solid #ddd;
-      overflow-y: auto;
-    }
-
-    nav.sidebar ul {
-      list-style: none;
-    }
-
-    nav.sidebar li {
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    nav.sidebar a {
-      display: block;
-      padding: 0.9rem 1rem;
-      color: #333;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    nav.sidebar a:hover,
-    nav.sidebar a.active {
-      background-color: #e2e6f0;
-      font-weight: bold;
-    }
-
-    /* ==== Main ==== */
-    main {
-      flex: 1;
-      padding: 2rem;
-      background-color: #fafafa;
-    }
-
-    /* ==== Sidebar toggle (mobile) ==== */
-    .sidebar-toggle {
-      display: none;
-      background: #4a90e2;
-      color: #fff;
-      border: none;
-      padding: 0.8rem 1rem;
-      width: 100%;
-      text-align: left;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .content-wrapper {
-        flex-direction: column;
-      }
-      nav.sidebar {
-        display: none;
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-      }
-      nav.sidebar.active {
-        display: block;
-      }
-      .sidebar-toggle {
-        display: block;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -148,10 +38,6 @@
     © 2025 Nama Anda. Semua hak dilindungi.
   </footer>
 
-  <script>
-    function toggleSidebar() {
-      document.getElementById('sidebarMenu').classList.toggle('active');
-    }
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
