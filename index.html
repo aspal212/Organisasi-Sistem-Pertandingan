@@ -2,40 +2,58 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Organisasi Sistem Pertandingan</title>
+  <title>Beranda - Organisasi Sistem Pertandingan</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <!-- Header -->
+
   <header>
     <h1>ORGANISASI SISTEM PERTANDINGAN</h1>
   </header>
 
-  <!-- Sidebar Toggle (mobile) -->
-  <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
+  <main>
+    <section class="container">
+      <div class="card">
+        <h2>Selamat datang!</h2>
+        <p>Silakan pilih <b>Buat Turnamen</b> untuk memulai</p>
 
-  <!-- Wrapper -->
-  <div class="content-wrapper">
-    <!-- Sidebar -->
-    <nav class="sidebar" id="sidebarMenu">
-      <ul>
-        <li><a href="index.html" class="active">Beranda</a></li>
-        <li><a href="tournament.html">Sistem Pertandingan</a></li>
-        <li><a href="about.html">Tentang</a></li>
-      </ul>
-    </nav>
+        <!-- Tombol 2D -->
+        <button class="btn-2d" id="openModal">Buat Turnamen</button>
+      </div>
+    </section>
+  </main>
 
-    <!-- Main -->
-    <main>
-      <h2>Selamat datang!</h2>
-    </main>
-  </div>
-
-  <!-- Footer -->
   <footer>
     © 2025 @a_imron. Semua hak dilindungi.
   </footer>
+
+  <!-- Popup Modal -->
+  <div id="tournamentModal" class="modal">
+    <div class="modal-content">
+      <h2>Buat Turnamen</h2>
+
+      <label for="tournamentName">Nama Turnamen:</label>
+      <input type="text" id="tournamentName" placeholder="Masukkan nama turnamen">
+
+      <label for="tournamentFormat">Format Turnamen:</label>
+      <select id="tournamentFormat">
+        <option value="">-- Pilih Sistem --</option>
+        <option value="gugur">Sistem Gugur</option>
+        <option value="gugurGanda">Gugur Ganda</option>
+        <option value="setengah">Setengah Kompetisi</option>
+        <option value="penuh">Kompetisi Penuh</option>
+      </select>
+
+      <div id="descriptionBox" class="description-box">
+        <p id="descriptionText"></p>
+      </div>
+
+      <div class="modal-buttons">
+        <button class="btn-cancel" id="cancelBtn">Cancel</button>
+        <button class="btn-ok" id="okBtn">Oke</button>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
