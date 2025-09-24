@@ -1,2 +1,3 @@
-// main.js - script dasar
-console.log('main.js loaded');
+function toggleSidebar() {
+  document.getElementById('sidebarMenu').classList.toggle('active');
+}
