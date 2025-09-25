@@ -2,49 +2,59 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistem Setengah Kompetisi - Generator Braket Turnamen</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Gunakan file CSS utama (sesuaikan path jika perlu) -->
+  <title>Sistem Setengah Kompetisi - Organisasi Sistem Pertandingan</title>
   <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Penyesuaian kecil agar tampil rapi jika style.css tidak menangani semuanya */
+    .page-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .summary-card {
+      padding: 18px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      background: #fff;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 16px;
+      text-decoration: none;
+      color: #fff;
+      background: #444;
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+    .section-title {
+      margin-bottom: 12px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1 id="tournamentNameDisplay" style="font-weight:bold; margin-top:5px;">Memuat...</h1>
-    <p>Sistem Setengah Kompetisi</p>
+    <h1>SETENGAH KOMPETISI</h1>
   </header>
 
-  <main>
-    <section class="container">
-      <div class="card">
-        <!-- Informasi Sistem -->
-        <h3>Informasi Sistem:</h3>
-        <p>Peserta bertemu satu kali dengan semua peserta di grup.</p>
-      </div>
+  <main class="page-container">
+    <div class="summary-card">
+      <h2 class="section-title">Rangkuman Turnamen</h2>
+      <p><strong>Nama Turnamen:</strong> <span id="tName">-</span></p>
+      <p><strong>Format:</strong> <span id="tFormat">-</span></p>
 
-      <div class="card">
-        <h3>Generator Braket Turnamen</h3>
-        <form id="bracketForm">
-          <label for="nama">Nama Turnamen</label>
-          <input type="text" id="nama" placeholder="Masukkan nama turnamen">
+      <hr>
 
-          <label for="format">Format Turnamen</label>
-          <select id="format">
-            <option value="gugur-unggulan">Sistem Gugur (Unggulan)</option>
-            <option value="gugur-acak">Sistem Gugur (Acak)</option>
-            <option value="swiss">Sistem Swiss</option>
-            <option value="round-robin">Round Robin</option>
-          </select>
+      <h3>Aturan Singkat Sistem Setengah Kompetisi</h3>
+      <ul>
+        <li>Peserta dibagi ke dalam grup (pool) dan bertanding round-robin di grup masing-masing.</li>
+        <li>Peringkat tiap grup ditentukan berdasarkan poin (menang/kalah/seri), selisih skor jika perlu.</li>
+        <li>Jumlah peserta teratas dari tiap grup akan melaju ke fase gugur (knockout).</li>
+        <li>Fase gugur menentukan juara akhir lewat sistem gugur tunggal atau ganda sesuai aturan turnamen.</li>
+      </ul>
 
-          <button type="button" id="createBracket" class="btn">Buat Braket</button>
-        </form>
-      </div>
-
-      <div class="card info">
-        Jumlah braket yang diproduksi sejauh ini: <strong id="bracketCount">475,445</strong>
-      </div>
-    </section>
+      <a id="backBtn" class="back-link" href="index.html">Kembali ke Beranda</a>
+    </div>
   </main>
 
   <footer>
@@ -52,46 +62,26 @@
   </footer>
 
   <script>
-    // Tampilkan nama turnamen dari localStorage (jika ada)
-    const nameStored = localStorage.getItem('tournamentName');
-    document.getElementById('tournamentNameDisplay').textContent = nameStored || "Belum ada turnamen";
+    // Ambil data dari query string dan tampilkan
+    (function () {
+      const qs = new URLSearchParams(window.location.search);
+      const name = qs.get('name');
+      const format = qs.get('format');
 
-    // Inisialisasi elemen form
-    const namaInput = document.getElementById('nama');
-    const formatSelect = document.getElementById('format');
-    const createBtn = document.getElementById('createBracket');
+      const tName = document.getElementById('tName');
+      const tFormat = document.getElementById('tFormat');
 
-    // Isi input nama dengan nilai dari localStorage bila ada
-    if (nameStored) {
-      namaInput.value = nameStored;
-    }
+      if (name) tName.textContent = name;
+      if (format) tFormat.textContent = format;
 
-    // Saat tombol "Buat Braket" diklik:
-    createBtn.addEventListener('click', () => {
-      const nama = namaInput.value.trim();
-      const format = formatSelect.value;
-
-      if (!nama) {
-        // Jika ingin menampilkan notifikasi visual, biarkan CSS menata .error; di sini cukup alert sederhana
-        alert('Silakan masukkan nama turnamen.');
-        return;
+      // Jika pengguna ingin kembali ke beranda sambil membawa data hasil,
+      // ubah link kembali untuk menyertakan query supaya beranda bisa menampilkan ringkasan.
+      const backBtn = document.getElementById('backBtn');
+      if (name && format) {
+        const params = new URLSearchParams({ name: name, format: format });
+        backBtn.href = 'index.html?' + params.toString();
       }
-
-      // Simpan nama turnamen ke localStorage dan perbarui tampilan header
-      localStorage.setItem('tournamentName', nama);
-      document.getElementById('tournamentNameDisplay').textContent = nama;
-
-      // Simulasikan pembuatan braket sederhana: simpan konfigurasi ke localStorage
-      const bracketConfig = {
-        name: nama,
-        format: format,
-        createdAt: new Date().toISOString()
-      };
-      localStorage.setItem('lastBracketConfig', JSON.stringify(bracketConfig));
-
-      // Umpan balik ke pengguna
-      alert('Braket dibuat untuk "' + nama + '" dengan format: ' + format + '.');
-    });
+    })();
   </script>
 </body>
 </html>
