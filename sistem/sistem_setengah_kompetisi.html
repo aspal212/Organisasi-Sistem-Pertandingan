@@ -2,8 +2,12 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Sistem Setengah Kompetisi - Turnamen</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Setengah Kompetisi - Generator Braket Turnamen</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Gunakan file CSS utama (sesuaikan path jika perlu) -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
@@ -18,6 +22,28 @@
         <h3>Informasi Sistem:</h3>
         <p>Peserta bertemu satu kali dengan semua peserta di grup.</p>
       </div>
+
+      <div class="card">
+        <h3>Generator Braket Turnamen</h3>
+        <form id="bracketForm">
+          <label for="nama">Nama Turnamen</label>
+          <input type="text" id="nama" placeholder="Masukkan nama turnamen">
+
+          <label for="format">Format Turnamen</label>
+          <select id="format">
+            <option value="gugur-unggulan">Sistem Gugur (Unggulan)</option>
+            <option value="gugur-acak">Sistem Gugur (Acak)</option>
+            <option value="swiss">Sistem Swiss</option>
+            <option value="round-robin">Round Robin</option>
+          </select>
+
+          <button type="button" id="createBracket" class="btn">Buat Braket</button>
+        </form>
+      </div>
+
+      <div class="card info">
+        Jumlah braket yang diproduksi sejauh ini: <strong id="bracketCount">475,445</strong>
+      </div>
     </section>
   </main>
 
@@ -26,9 +52,46 @@
   </footer>
 
   <script>
-    // Ambil nama turnamen dari localStorage
-    const name = localStorage.getItem('tournamentName');
-    document.getElementById('tournamentNameDisplay').textContent = name || "Belum ada turnamen";
+    // Tampilkan nama turnamen dari localStorage (jika ada)
+    const nameStored = localStorage.getItem('tournamentName');
+    document.getElementById('tournamentNameDisplay').textContent = nameStored || "Belum ada turnamen";
+
+    // Inisialisasi elemen form
+    const namaInput = document.getElementById('nama');
+    const formatSelect = document.getElementById('format');
+    const createBtn = document.getElementById('createBracket');
+
+    // Isi input nama dengan nilai dari localStorage bila ada
+    if (nameStored) {
+      namaInput.value = nameStored;
+    }
+
+    // Saat tombol "Buat Braket" diklik:
+    createBtn.addEventListener('click', () => {
+      const nama = namaInput.value.trim();
+      const format = formatSelect.value;
+
+      if (!nama) {
+        // Jika ingin menampilkan notifikasi visual, biarkan CSS menata .error; di sini cukup alert sederhana
+        alert('Silakan masukkan nama turnamen.');
+        return;
+      }
+
+      // Simpan nama turnamen ke localStorage dan perbarui tampilan header
+      localStorage.setItem('tournamentName', nama);
+      document.getElementById('tournamentNameDisplay').textContent = nama;
+
+      // Simulasikan pembuatan braket sederhana: simpan konfigurasi ke localStorage
+      const bracketConfig = {
+        name: nama,
+        format: format,
+        createdAt: new Date().toISOString()
+      };
+      localStorage.setItem('lastBracketConfig', JSON.stringify(bracketConfig));
+
+      // Umpan balik ke pengguna
+      alert('Braket dibuat untuk "' + nama + '" dengan format: ' + format + '.');
+    });
   </script>
 </body>
 </html>
