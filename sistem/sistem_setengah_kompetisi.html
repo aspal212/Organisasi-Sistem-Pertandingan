@@ -2,59 +2,51 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Sistem Setengah Kompetisi - Organisasi Sistem Pertandingan</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    /* Penyesuaian kecil agar tampil rapi jika style.css tidak menangani semuanya */
-    .page-container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-    .summary-card {
-      padding: 18px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      background: #fff;
-    }
-    .back-link {
-      display: inline-block;
-      margin-top: 16px;
-      text-decoration: none;
-      color: #fff;
-      background: #444;
-      padding: 8px 12px;
-      border-radius: 6px;
-    }
-    .section-title {
-      margin-bottom: 12px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator Braket Turnamen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> <!-- pastikan path ini benar -->
 </head>
 <body>
+
   <header>
-    <h1>SETENGAH KOMPETISI</h1>
+    <h1>GENERATOR BRAKET TURNAMEN</h1>
   </header>
 
-  <main class="page-container">
-    <div class="summary-card">
-      <h2 class="section-title">Rangkuman Turnamen</h2>
-      <p><strong>Nama Turnamen:</strong> <span id="tName">-</span></p>
-      <p><strong>Format:</strong> <span id="tFormat">-</span></p>
+  <main>
+    <section class="container">
+      <div class="card" style="max-width:700px; margin:24px auto;">
+        <h2 style="margin-top:0;">Buat Braket</h2>
 
-      <hr>
+        <form id="bracketForm">
+          <label for="nama">Nama Turnamen</label>
+          <input type="text" id="nama" placeholder="Masukkan nama turnamen">
 
-      <h3>Aturan Singkat Sistem Setengah Kompetisi</h3>
-      <ul>
-        <li>Peserta dibagi ke dalam grup (pool) dan bertanding round-robin di grup masing-masing.</li>
-        <li>Peringkat tiap grup ditentukan berdasarkan poin (menang/kalah/seri), selisih skor jika perlu.</li>
-        <li>Jumlah peserta teratas dari tiap grup akan melaju ke fase gugur (knockout).</li>
-        <li>Fase gugur menentukan juara akhir lewat sistem gugur tunggal atau ganda sesuai aturan turnamen.</li>
-      </ul>
+          <label for="format">Format Turnamen</label>
+          <select id="format">
+            <option value="">-- Pilih Format --</option>
+            <option value="gugur-unggulan">Sistem Gugur (Unggulan)</option>
+            <option value="gugur-acak">Sistem Gugur (Acak)</option>
+            <option value="swiss">Sistem Swiss</option>
+            <option value="round-robin">Round Robin</option>
+          </select>
 
-      <a id="backBtn" class="back-link" href="index.html">Kembali ke Beranda</a>
-    </div>
+          <div style="margin-top:16px; text-align:right;">
+            <button type="button" class="btn-2d" id="createBracket">Buat Braket</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="generatedCard" class="card" style="display:none; margin-top:20px;">
+        <h3>Braket Dibuat</h3>
+        <p><b>Nama Turnamen:</b> <span id="outName"></span></p>
+        <p><b>Format:</b> <span id="outFormat"></span></p>
+      </div>
+
+      <div class="info" style="margin-top:18px; color:#374151; text-align:center;">
+        Jumlah braket yang diproduksi sejauh ini: <strong>475,445</strong>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -62,26 +54,38 @@
   </footer>
 
   <script>
-    // Ambil data dari query string dan tampilkan
-    (function () {
-      const qs = new URLSearchParams(window.location.search);
-      const name = qs.get('name');
-      const format = qs.get('format');
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('createBracket');
+      const nameInput = document.getElementById('nama');
+      const formatSelect = document.getElementById('format');
+      const outCard = document.getElementById('generatedCard');
+      const outName = document.getElementById('outName');
+      const outFormat = document.getElementById('outFormat');
 
-      const tName = document.getElementById('tName');
-      const tFormat = document.getElementById('tFormat');
+      btn.addEventListener('click', () => {
+        const name = nameInput.value.trim();
+        const formatText = formatSelect.options[formatSelect.selectedIndex].text;
 
-      if (name) tName.textContent = name;
-      if (format) tFormat.textContent = format;
+        if (!name) {
+          alert('Masukkan nama turnamen.');
+          nameInput.focus();
+          return;
+        }
+        if (!formatSelect.value) {
+          alert('Pilih format turnamen.');
+          formatSelect.focus();
+          return;
+        }
 
-      // Jika pengguna ingin kembali ke beranda sambil membawa data hasil,
-      // ubah link kembali untuk menyertakan query supaya beranda bisa menampilkan ringkasan.
-      const backBtn = document.getElementById('backBtn');
-      if (name && format) {
-        const params = new URLSearchParams({ name: name, format: format });
-        backBtn.href = 'index.html?' + params.toString();
-      }
-    })();
+        outName.textContent = name;
+        outFormat.textContent = formatText;
+        outCard.style.display = 'block';
+
+        nameInput.value = '';
+        formatSelect.value = '';
+      });
+    });
   </script>
+
 </body>
 </html>
