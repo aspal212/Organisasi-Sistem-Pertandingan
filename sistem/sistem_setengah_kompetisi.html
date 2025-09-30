@@ -7,8 +7,8 @@
 </head>
 <body>
   <header>
-    <h1 id="namaTurnamen">Turnamen Setengah Kompetisi</h1>
-    <h2 id="turnamen-name"></h2>
+    <h1 id="namaTurnamen">Turnamen</h1>
+    <h3 id="sistemDipilih">Sistem: -</h3>
   </header>
 
   <main>
@@ -37,6 +37,15 @@
   </main>
 
   <script>
+    // Tampilkan nama turnamen & sistem
+    document.addEventListener("DOMContentLoaded", function() {
+      const namaTurnamen = localStorage.getItem("namaTurnamen") || "Turnamen";
+      const sistem = localStorage.getItem("sistemPertandingan") || "Tidak diketahui";
+
+      document.getElementById("namaTurnamen").textContent = namaTurnamen;
+      document.getElementById("sistemDipilih").textContent = "Sistem: " + sistem;
+    });
+
     const formPeserta = document.getElementById("form-peserta");
     const listPeserta = document.getElementById("list-peserta");
     const hasilGrup = document.getElementById("hasil-grup");
@@ -93,7 +102,7 @@
       });
     }
 
-    // Simpan & Pindah ke halaman turnamen
+    // Simpan & Pindah ke halaman hasil
     buatTurnamenBtn.addEventListener("click", function() {
       localStorage.setItem("grups", JSON.stringify(grups));
       window.location.href = "hasil_sistem_setengah_kompetisi.html";

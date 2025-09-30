@@ -207,3 +207,13 @@ document.addEventListener('DOMContentLoaded', function () {
 // Tampilkan nama turnamen dari localStorage
 const namaTurnamen = localStorage.getItem("namaTurnamen") || "Turnamen Setengah Kompetisi";
 document.getElementById("judul-turnamen").innerText = namaTurnamen + " - Klasemen & Jadwal";
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const namaTurnamen = localStorage.getItem("namaTurnamen") || "Turnamen";
+    const sistem = localStorage.getItem("sistemPertandingan") || "Tidak diketahui";
+
+    document.getElementById("namaTurnamen").textContent = namaTurnamen;
+    document.getElementById("sistemDipilih").textContent = "Sistem: " + sistem;
+  };
+</script>

@@ -2,12 +2,12 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Klasemen & Jadwal Pertandingan</title>
+  <title>Sistem Setengah Kompetisi</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <header>
-    <h1 id="judul-turnamen">Klasemen & Jadwal Pertandingan</h1>
+  <h1 id="judul-turnamen">Klasemen & Jadwal Pertandingan</h1>
   </header>
 
   <main>
@@ -27,10 +27,6 @@
   </footer>
 
   <script>
-    // Ambil nama turnamen dari localStorage
-    const namaTurnamen = localStorage.getItem("namaTurnamen") || "Turnamen Setengah Kompetisi";
-    document.getElementById("judul-turnamen").innerText = namaTurnamen + " - Klasemen & Jadwal";
-
     const grups = JSON.parse(localStorage.getItem("grups")) || [];
     let klasemenData = {};
     let hasilPertandingan = {}; // simpan hasil supaya bisa edit
@@ -46,8 +42,8 @@
           kalah: 0,
           poin: 0,
           selisih: 0,
-          gf: 0,
-          ga: 0
+          gf: 0, // goal for (skor menang)
+          ga: 0  // goal against (skor kalah)
         };
       });
     });
@@ -64,13 +60,7 @@
           jadwalDiv.innerHTML += `<h4>Grup ${String.fromCharCode(65+gIndex)}</h4><p>(Tidak ada pertandingan)</p>`;
           return;
         }
-        let html = `<h4>Grup ${String.fromCharCode(65+gIndex)}</h4>
-                    <table>
-                      <tr>
-                        <th>Pertandingan</th>
-                        <th>Skor</th>
-                        <th>Aksi</th>
-                      </tr>`;
+        let html = `<h4>Grup ${String.fromCharCode(65+gIndex)}</h4><table border="1" cellpadding="5"><tr><th>Pertandingan</th><th>Skor</th><th>Aksi</th></tr>`;
         for (let i = 0; i < grup.length; i++) {
           for (let j = i+1; j < grup.length; j++) {
             const matchId = `${gIndex}-${i}-${j}`;
@@ -104,9 +94,13 @@
         return;
       }
 
+      // Simpan hasil pertandingan
       hasilPertandingan[gIndex][matchId] = { teamA, teamB, skorA, skorB };
+
+      // Update klasemen
       updateKlasemen(gIndex);
 
+      // Nonaktifkan tombol simpan, aktifkan tombol edit
       document.getElementById(`btn-simpan-${matchId}`).disabled = true;
       document.getElementById(`btn-edit-${matchId}`).disabled = false;
 
@@ -115,19 +109,24 @@
 
     // Edit skor
     function editSkor(matchId, gIndex, teamA, teamB, idA, idB) {
+      // Ambil skor lama
       const old = hasilPertandingan[gIndex][matchId];
       if (!old) return;
 
+      // Kosongkan skor lama
       delete hasilPertandingan[gIndex][matchId];
 
+      // Update klasemen ulang (reset semua & hitung ulang semua pertandingan)
       resetKlasemenGrup(gIndex);
       Object.values(hasilPertandingan[gIndex]).forEach(m => {
         applyMatchResult(gIndex, m.teamA, m.teamB, m.skorA, m.skorB);
       });
 
+      // Aktifkan kembali tombol simpan
       document.getElementById(`btn-simpan-${matchId}`).disabled = false;
       document.getElementById(`btn-edit-${matchId}`).disabled = true;
 
+      // Kosongkan input skor agar user isi ulang
       document.getElementById(idA).value = "";
       document.getElementById(idB).value = "";
 
@@ -141,7 +140,7 @@
       });
     }
 
-    // Terapkan hasil pertandingan
+    // Terapkan hasil pertandingan ke klasemen
     function applyMatchResult(gIndex, teamA, teamB, skorA, skorB) {
       klasemenData[gIndex][teamA].main++;
       klasemenData[gIndex][teamB].main++;
@@ -168,7 +167,7 @@
       }
     }
 
-    // Update klasemen
+    // Update klasemen grup berdasarkan hasilPertandingan
     function updateKlasemen(gIndex) {
       resetKlasemenGrup(gIndex);
       Object.values(hasilPertandingan[gIndex]).forEach(m => {
@@ -182,8 +181,12 @@
       klasemenDiv.innerHTML = "";
       grups.forEach((grup, gIndex) => {
         let html = `<h4>Grup ${String.fromCharCode(65+gIndex)}</h4>`;
-        let arr = Object.entries(klasemenData[gIndex]).map(([nama, data]) => ({ nama, ...data }));
+        let arr = Object.entries(klasemenData[gIndex]).map(([nama, data]) => ({
+          nama,
+          ...data
+        }));
 
+        // Urutkan: poin > selisih > GF > GA > nama
         arr.sort((a, b) => {
           if (b.poin !== a.poin) return b.poin - a.poin;
           if (b.selisih !== a.selisih) return b.selisih - a.selisih;
@@ -191,15 +194,15 @@
           return a.nama.localeCompare(b.nama);
         });
 
-        html += `<table>
+        html += `<table border="1" cellpadding="5" cellspacing="0">
                   <tr>
                     <th>Peringkat</th>
                     <th>Peserta</th>
                     <th>Main</th>
                     <th>Menang</th>
                     <th>Kalah</th>
-                    <th>GF</th>
-                    <th>GA</th>
+                    <th>SM</th>
+                    <th>SK</th>
                     <th>Selisih</th>
                     <th>Poin</th>
                   </tr>`;

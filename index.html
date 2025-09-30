@@ -41,9 +41,10 @@
             const namaTurnamen = document.getElementById("turnamen-name").value;
             const kategori = document.getElementById("kategori").value;
 
-            // simpan nama turnamen ke localStorage
+            // simpan nama turnamen & sistem pertandingan ke localStorage
             localStorage.setItem("namaTurnamen", namaTurnamen);
-
+            localStorage.setItem("sistemPertandingan", kategori);
+   
             // redirect sesuai sistem
             switch (kategori) {
                 case "gugur":
