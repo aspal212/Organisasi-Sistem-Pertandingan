@@ -10,24 +10,23 @@
         <h1>ORGANISASI SISTEM PERTANDINGAN</h1>
     </header>
 
-        <div class="bracket-card">
-            <h2>Buat Turnamen</h2>
-            <form id="form-turnamen">
-                <label for="turnamen-name">Nama Turnamen</label>
-                <input type="text" id="turnamen-name" name="turnamen-name" placeholder="Masukkan nama turnamen" required>
+    <div class="bracket-card">
+        <h2>Buat Turnamen</h2>
+        <form id="form-turnamen">
+            <label for="turnamen-name">Nama Turnamen</label>
+            <input type="text" id="turnamen-name" name="turnamen-name" placeholder="Masukkan nama turnamen" required>
 
-                <label for="kategori">Sistem Pertandingan</label>
-                <select id="kategori" name="kategori" required>
-                    <option value="gugur">Gugur</option>
-                    <option value="ganda">Gugur Ganda</option>
-                    <option value="swiss">Swiss</option>
-                    <option value="penuh">Kompetisi Penuh</option>
-                    <option value="setengah">Setengah Kompetisi</option>
-                </select>
+            <label for="kategori">Sistem Pertandingan</label>
+            <select id="kategori" name="kategori" required>
+                <option value="gugur">Gugur</option>
+                <option value="ganda">Gugur Ganda</option>
+                <option value="swiss">Swiss</option>
+                <option value="penuh">Kompetisi Penuh</option>
+                <option value="setengah">Setengah Kompetisi</option>
+            </select>
 
-                <button class="button-primary" type="submit">BUAT</button>
-            </form>
-        </div>
+            <button class="button-primary" type="submit">BUAT</button>
+        </form>
     </div>
 
     <footer>
@@ -41,10 +40,31 @@
             const namaTurnamen = document.getElementById("turnamen-name").value;
             const kategori = document.getElementById("kategori").value;
 
-            // simpan nama turnamen & sistem pertandingan ke localStorage
+            // simpan nama turnamen & sistem ke localStorage
             localStorage.setItem("namaTurnamen", namaTurnamen);
-            localStorage.setItem("sistemPertandingan", kategori);
-   
+
+            let namaSistem = "";
+            switch (kategori) {
+                case "gugur":
+                    namaSistem = "Sistem Gugur";
+                    break;
+                case "ganda":
+                    namaSistem = "Sistem Gugur Ganda";
+                    break;
+                case "swiss":
+                    namaSistem = "Sistem Swiss";
+                    break;
+                case "penuh":
+                    namaSistem = "Kompetisi Penuh";
+                    break;
+                case "setengah":
+                    namaSistem = "Setengah Kompetisi";
+                    break;
+                default:
+                    namaSistem = kategori;
+            }
+            localStorage.setItem("sistemPertandingan", namaSistem);
+
             // redirect sesuai sistem
             switch (kategori) {
                 case "gugur":
