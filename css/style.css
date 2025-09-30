@@ -1,176 +1,114 @@
-/* ==== Reset Dasar ==== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
+/* Import Font Awesome for icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+/* Base styles */
 body {
-  background-color: #0d0d0d; /* Hitam pekat */
-  color: #f5f5f5; /* Putih lembut */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #111;
+    color: #eee;
 }
 
-/* ==== Header ==== */
+/* Header */
 header {
-  background: #1a1a1a;
-  padding: 20px;
-  text-align: center;
-  border-bottom: 2px solid #b30000;
+    background-color: #222;
+    color: #f00;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #f00;
 }
 
-header h1 {
-  color: #e60000; /* Merah elegan */
-  font-size: 2rem;
-}
-
-#nama-turnamen-display {
-  font-size: 1.2rem;
-  margin-top: 50px;
-  color: #f5f5f5;
-  text-align: left;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-/* ==== Container Box ==== */
-.container {
-  background: #1a1a1a;
-  border: 1px solid #262626;
-  border-left: 4px solid #b30000; /* highlight merah */
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 800px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(179, 0, 0, 0.3);
-}
-
-/* ==== Tombol ==== */
-button, .button-primary {
-  background: #b30000;
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
-}
-
-button:hover, .button-primary:hover {
-  background: #e60000;
-  box-shadow: 0 0 8px rgba(230, 0, 0, 0.6);
-}
-
-.actions {
-  text-align: right;
-  margin-top: 15px;
-}
-
-.actions button {
-  margin-right: 10px;
-}
-
-/* ==== Input & Textarea ==== */
-input, textarea, select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  margin-bottom: 12px;
-  background: #0d0d0d;
-  border: 1px solid #333;
-  color: #f5f5f5;
-  border-radius: 6px;
-}
-
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: #b30000;
-  box-shadow: 0 0 6px rgba(230, 0, 0, 0.6);
-}
-
-/* ==== Tabel ==== */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-table th, table td {
-  border: 1px solid #333;
-  padding: 8px;
-  text-align: center;
-}
-
-table th {
-  background: #b30000;
-  color: #fff;
-}
-
-table tr:nth-child(even) {
-  background: #141414;
-}
-
-table tr:hover {
-  background: #262626;
-}
-
-/* ==== Footer ==== */
-footer {
-  text-align: center;
-  padding: 15px;
-  margin-top: 30px;
-  background: #1a1a1a;
-  border-top: 2px solid #b30000;
-  color: #aaa;
-}
-footer a {
-  color: #b30000;
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Tambahkan padding ke seluruh body */
-body {
-  background-color: #121212; /* abu gelap */
-  color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 2;
-  padding-left: 10px;   /* geser isi body 10px dari kiri */
-  padding-right: 10px;  /* opsional agar kanan juga rapi */
-}
-
-/* Header biar tidak nempel kiri */
-header {
-  background-color: #1e1e1e;
-  padding: 20px 20px 20px 40px; /* kiri lebih lebar */
-  text-align: center;             /* biar rata kiri */
-  border-bottom: 2px solid #e63946;
-}
-
-/* Card konten */
+/* Form Card */
 .bracket-card {
-  background-color: #1e1e1e;
-  padding: 10px;
-  margin: 30px auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-  max-width: 700px;  /* biar tidak terlalu melebar */
+    background-color: #1a1a1a;
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #444;
+    animation: fadeIn 1s ease-in-out;
 }
-.bracket-card h2 {
-  color: #e63946;
-  margin-bottom: 15px;
+
+/* Form Elements */
+form label {
+    display: block;
+    margin-top: 15px;
+    color: #ccc;
 }
-.bracket-card p {
-  margin-bottom: 10px;
+
+form input[type="text"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    transition: all 0.3s ease;
 }
-.bracket-card ul {
-  list-style-type: disc;
-  margin-left: 20px;
+
+form input[type="text"]:focus,
+form select:focus {
+    border-color: #f00;
+    background-color: #222;
 }
-.bracket-card ul li {
-  margin-bottom: 8px;
+
+/* Button */
+.button-primary {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-primary:hover {
+    background-color: #c00;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    border-top: 1px solid #333;
+}
+
+/* Navigation Icons */
+nav {
+    background-color: #111;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #f00;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Change cursor to pointer on hover for links and buttons */
+a:hover, button:hover, .button-primary:hover {
+    cursor: pointer;
 }
