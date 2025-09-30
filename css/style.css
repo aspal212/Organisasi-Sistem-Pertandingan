@@ -1,84 +1,131 @@
-
-/* Reset dasar */
+/* ==== Reset Dasar ==== */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Warna dasar dan latar belakang */
 body {
-  background-color: #f5f7fa;
-  color: #333;
+  background-color: #0d0d0d; /* Hitam pekat */
+  color: #f5f5f5; /* Putih lembut */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
 }
 
-/* Header */
+/* ==== Header ==== */
 header {
-  background-color: #1e1e2f;
-  color: white;
-  padding: 50px;
+  background: #1a1a1a;
+  padding: 20px;
   text-align: center;
+  border-bottom: 2px solid #b30000;
 }
 
-/* Tombol utama */
-.button-primary {
-  background-color: #4f46e5;
-  color: white;
-  padding: 10px 20px;
+header h1 {
+  color: #e60000; /* Merah elegan */
+  font-size: 2rem;
+}
+
+#nama-turnamen-display {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #f5f5f5;
+}
+
+/* ==== Container Box ==== */
+.container {
+  background: #1a1a1a;
+  border: 1px solid #262626;
+  border-left: 4px solid #b30000; /* highlight merah */
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(179, 0, 0, 0.3);
+}
+
+/* ==== Tombol ==== */
+button, .button-primary {
+  background: #b30000;
+  color: #fff;
   border: none;
+  padding: 10px 18px;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.3s;
+  font-weight: bold;
 }
 
-.button-primary:hover {
-  background-color: #3730a3;
+button:hover, .button-primary:hover {
+  background: #e60000;
+  box-shadow: 0 0 8px rgba(230, 0, 0, 0.6);
 }
 
-/* Container utama */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+.actions {
+  text-align: right;
+  margin-top: 15px;
 }
 
-/* Kartu/bracket */
-.bracket-card {
-  background-color: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+.actions button {
+  margin-left: 10px;
 }
 
-/* Formulir */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-input[type="text"],
-select {
+/* ==== Input & Textarea ==== */
+input, textarea, select {
+  width: 100%;
   padding: 10px;
-  border: 1px solid #cbd5e0;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  background: #0d0d0d;
+  border: 1px solid #333;
+  color: #f5f5f5;
   border-radius: 6px;
 }
 
-/* Label */
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #b30000;
+  box-shadow: 0 0 6px rgba(230, 0, 0, 0.6);
 }
 
-/* Footer */
+/* ==== Tabel ==== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table th, table td {
+  border: 1px solid #333;
+  padding: 8px;
+  text-align: center;
+}
+
+table th {
+  background: #b30000;
+  color: #fff;
+}
+
+table tr:nth-child(even) {
+  background: #141414;
+}
+
+table tr:hover {
+  background: #262626;
+}
+
+/* ==== Footer ==== */
 footer {
-  background-color: #1e1e2f;
-  color: white;
   text-align: center;
   padding: 15px;
-  margin-top: 40px;
+  margin-top: 30px;
+  background: #1a1a1a;
+  border-top: 2px solid #b30000;
+  color: #aaa;
+}
+footer a {
+  color: #b30000;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
 }

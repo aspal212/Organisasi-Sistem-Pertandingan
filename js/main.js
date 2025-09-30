@@ -203,3 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   showTournamentResultFromQuery();
 });
+
+// Tampilkan nama turnamen dari localStorage
+const namaTurnamen = localStorage.getItem("namaTurnamen") || "Turnamen Setengah Kompetisi";
+document.getElementById("judul-turnamen").innerText = namaTurnamen + " - Klasemen & Jadwal";

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistem Gugur Swiss</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <h1 id="judul-turnamen"></h1>
+    <h2>Sistem Gugur Swiss</h2>
+  </header>
+
+  <main class="container">
+    <p>Pada sistem Swiss, semua peserta bermain dalam jumlah ronde tertentu.</p>
+    <p>Peringkat ditentukan berdasarkan poin akumulasi dari setiap ronde.</p>
+  </main>
+
+  <footer>
+    <a href="../index.html">← Kembali ke Halaman Utama</a>
+  </footer>
+
+  <script>
+    // ambil nama turnamen dari localStorage
+    const namaTurnamen = localStorage.getItem("namaTurnamen") || "Turnamen Tanpa Nama";
+    document.getElementById("judul-turnamen").textContent = namaTurnamen;
+  </script>
+</body>
+</html>
