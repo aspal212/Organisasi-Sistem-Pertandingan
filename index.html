@@ -1,68 +1,42 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Beranda - Organisasi Sistem Pertandingan</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <meta charset="UTF-8">
+    <title>Bracket LVUP</title>
+    <link rel="stylesheet" href="css/style.css">
+        <h1>ORGANISASI SISTEM PERTANDINGAN</h1>
+    </header>
 
-  <header>
-    <h1>ORGANISASI SISTEM PERTANDINGAN</h1>
-  </header>
+    <div class="container">
+        <div class="bracket-card">
+            <h2>Pertandingan</h2>
+            <p>Berikut adalah struktur pertandingan untuk turnamen yang sedang berlangsung.</p>
+        </div>
 
-  <main>
-    <section class="container">
-      <div class="card">
-        <h2>Selamat datang!</h2>
-        <p>Silakan pilih <b>Buat Turnamen</b> untuk memulai</p>
+        <div class="bracket-card">
+            <h2>Pendaftaran</h2>
+            <form>
+                <label for="turnamen-name">Nama Turnamen</label>
+                <input type="text" id="turnamen-name" name="turnamen-name" placeholder="Masukkan nama turnamen">
 
-        <!-- Tombol 2D -->
-        <button class="btn-2d" id="openModal">Buat Turnamen</button>
-      </div>
+                <label for="kategori">Sistem Pertandingan</label>
+                <select id="kategori" name="kategori">
+                    <option value="gugur">Gugur</option>
+                    <option value="ganda">Gugur Ganda</option>
+                    <option value="swiss">Swiss</option>
+                    <option value="penuh">Kompetisi Penuh</option>
+                    <option value="setengah">Setengah Kompetisi</option>
+                    
+                </select>
 
-      <!-- Area untuk menampilkan hasil turnamen sementara -->
-      <div id="tournamentResult" class="card" style="display:none; margin-top:20px;">
-        <h3>Turnamen Dibuat:</h3>
-        <p><b>Nama Turnamen:</b> <span id="resultName"></span></p>
-        <p><b>Format Turnamen:</b> <span id="resultFormat"></span></p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © 2025 @a_imron. Semua hak dilindungi.
-  </footer>
-
-  <!-- Popup Modal -->
-  <div id="tournamentModal" class="modal">
-    <div class="modal-content">
-      <h2>Buat Turnamen</h2>
-
-      <label for="tournamentName">Nama Turnamen:</label>
-      <input type="text" id="tournamentName" placeholder="Masukkan nama turnamen">
-
-      <label for="tournamentFormat">Format Turnamen:</label>
-      <select id="tournamentFormat">
-        <option value="">-- Pilih Sistem --</option>
-        <option value="Sistem Gugur Tunggal">Sistem Gugur Tunggal</option>
-        <option value="Sistem Gugur Ganda">Sistem Gugur Ganda</option>
-        <option value="Sistem Gugur Swiss">Sistem Gugur Swiss</option>
-        <option value="Sistem Setengah Kompetisi">Sistem Setengah Kompetisi</option>
-        <option value="Sistem Kompetisi Penuh">Sistem Kompetisi Penuh</option>
-      </select>
-
-      <div id="descriptionBox" class="description-box">
-        <p id="descriptionText"></p>
-      </div>
-
-      <div class="modal-buttons">
-        <button class="btn-cancel" id="cancelBtn">Cancel</button>
-        <button class="btn-ok" id="okBtn">Oke</button>
-      </div>
+                <button class="button-primary" type="submit">Daftar</button>
+            </form>
+        </div>
     </div>
-  </div>
 
-  <script src="js/main.js"></script>
+    <footer>
+        &copy; 2024 LVUP.GG - Semua hak dilindungi.
+    </footer>
+
 </body>
 </html>
