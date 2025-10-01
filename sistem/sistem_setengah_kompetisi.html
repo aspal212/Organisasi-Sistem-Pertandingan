@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Sistem Setengah Kompetisi</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <header>
@@ -35,6 +35,10 @@
       <button id="buat-turnamen" style="display:none;">Buat Turnamen</button>
     </div>
   </main>
+
+   <footer>
+        &copy; 2025 @a_imron - Semua hak dilindungi.
+    </footer>
 
   <script>
     // Tampilkan nama turnamen & sistem
@@ -70,6 +74,8 @@
         listPeserta.innerHTML += `<li>${index+1}. ${nama}</li>`;
       });
     }
+
+    
 
     // Bagi grup
     document.getElementById("bagi-grup").addEventListener("click", function() {

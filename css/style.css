@@ -6,52 +6,59 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
     background-color: #111;
-    color: #eee;
+    color: #12c702;
 }
 
 /* Header */
 header {
+    box-sizing: border-box;
+    width: 100%;
     background-color: #222;
     color: #f00;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     padding: 20px;
     text-align: center;
-    border-bottom: 2px solid #f00;
+    border-bottom: 2px solid #12c702;
 }
 
 /* Form Card */
 .bracket-card {
+    box-sizing: border-box;
     background-color: #1a1a1a;
     margin: 30px auto;
     padding: 20px;
     max-width: 500px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 0 10px #444;
     animation: fadeIn 1s ease-in-out;
 }
 
 /* Form Elements */
 form label {
+    box-sizing: border-box;
     display: block;
     margin-top: 15px;
-    color: #ccc;
+    color: #eef3f0;
 }
 
 form input[type="text"],
 form select {
+    box-sizing: border-box;
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #555;
+    border: 1px solid #12c702;
     border-radius: 5px;
     background-color: #333;
-    color: #fff;
+    color: #f7f1f1;
     transition: all 0.3s ease;
 }
 
 form input[type="text"]:focus,
 form select:focus {
-    border-color: #f00;
+    border-color: #12c702;
     background-color: #222;
 }
 
@@ -69,7 +76,7 @@ form select:focus {
 }
 
 .button-primary:hover {
-    background-color: #c00;
+    background-color: #f00;
     transform: scale(1.05);
 }
 
@@ -78,9 +85,13 @@ footer {
     background-color: #222;
     color: #aaa;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
+    margin-top: 20px;
+    border-top: 1px solid #12c702;
+    padding: 10px;
+    margin-top: 20px;
     font-size: 14px;
-    border-top: 1px solid #333;
+    border-bottom: 1px solid #12c702;
 }
 
 /* Navigation Icons */
@@ -99,7 +110,18 @@ nav a {
 }
 
 nav a:hover {
-    color: #fff;
+    color: #ffffff;
+}
+
+/*hover effects for links*/
+a {
+    color: #12c702;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffffff;
 }
 
 /* Animations */
