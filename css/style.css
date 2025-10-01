@@ -134,3 +134,60 @@ a:hover {
 a:hover, button:hover, .button-primary:hover {
     cursor: pointer;
 }
+
+/* Khusus untuk halaman sistem_setengah_kompetisi.html */
+body#setengah-kompetisi main {
+    padding: 100px;
+}
+
+body#hasil-setengah-kompetisi .grup-section {
+    background-color: #ebe5e5;
+    border: 1px solid #12c702;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px #444;
+    animation: fadeIn 1s ease-in-out;
+}
+
+body#hasil-setengah-kompetisi .grup-section h2 {
+    color: #f00;
+    margin-bottom: 10px;
+}
+
+body#hasil-setengah-kompetisi .grup-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+body#hasil-setengah-kompetisi .grup-section ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #333;
+    color: #12c702;
+}
+
+body#hasil-setengah-kompetisi .jadwal-section {
+    background-color: #1a1a1a;
+    border: 1px solid #12c702;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px #444;
+    animation: fadeIn 1s ease-in-out;
+}
+
+body#hasil-setengah-kompetisi .jadwal-section h3 {
+    color: #f00;
+    margin-bottom: 10px;
+}
+
+body#hasil-setengah-kompetisi .jadwal-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+body#hasil-setengah-kompetisi .jadwal-section ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #333;
+    color: #eef3f0;
+}
