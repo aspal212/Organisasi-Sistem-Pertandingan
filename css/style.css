@@ -10,7 +10,11 @@
 header {
     background-color: #186375;
     border-bottom: 4px solid #b90b0b;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
@@ -37,6 +41,9 @@ body {
 
 h1, h2, h3 {
     color: rgb(255, 197, 53);
+    text-align: right;
+    margin: 5px 0;
+    font-weight: bolder;
 }
 
 a {
@@ -68,8 +75,16 @@ header h1 {
   font-size: 18px;
   color: rgb(255, 197, 53);
   padding: 10px 5px;
-  container-type: inline-size; 
-    background-color: #186375;
+  container-type: inline-size;
+  margin-right: auto;
+}
+header img {
+    height: 60px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+header img {
+    background-color: #ffffff;
     border-radius: 5px;
 }
 
@@ -84,53 +99,40 @@ footer {
   margin-top: 40px;
 }
 
-/* ============================= */
-/*         INDEX PAGE           */
-/* ============================= */
-body.index-page {
-  background-color: #e6f2ff;
+main {
+    min-height: flex; /* Ensure main takes available space */
+    padding-bottom: 20px; /* Space for footer */
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-.index-page .intro {
-  text-align: center;
-  padding: 40px 20px;
+button {
+    background-color: #186375;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-.index-page .intro h1 {
-  font-size: 2.5em;
+.bracket-card {
+    background-color: #f9f9f9;
+    text-align: right;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: auto;
+    margin-top: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
-/* ============================= */
-/*   SISTEM SETENGAH KOMPETISI  */
-/* ============================= */
-body.sistem-setengah-kompetisi {
-  background-color: #fffbe6;
-}
-
-.sistem-setengah-kompetisi h1 {
-  color: #181717;
-}
-
-.sistem-setengah-kompetisi .description {
-  margin-top: 20px;
-  line-height: 1.6;
-}
-
-/* ============================= */
-/*     HASIL SISTEM SETENGAH    */
-/* ============================= */
-body.hasil-sistem-setengah-kompetisi {
-  background-color: #f0fff0;
-}
-
-.hasil-sistem-setengah-kompetisi h1 {
-  color: #006600;
-}
-
-.hasil-sistem-setengah-kompetisi .results {
-  margin-top: 30px;
-}
-
-.hasil-sistem-setengah-kompetisi .results table {
-  background-color: #ffffff;
+#form-turnamen {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
