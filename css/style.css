@@ -2,192 +2,135 @@
 /* Import Font Awesome for icons */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
-/* Base styles */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-sizing: border-box;
-    background-color: #111;
-    color: #12c702;
-}
 
-/* Header */
+/* ============================= */
+/*        GLOBAL STYLES         */
+/* ============================= */
+
 header {
-    box-sizing: border-box;
-    width: 100%;
-    background-color: #222;
-    color: #f00;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: #186375;
+    border-bottom: 4px solid #b90b0b;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 20px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
     padding: 20px;
-    text-align: center;
-    border-bottom: 2px solid #12c702;
 }
 
-/* Form Card */
-.bracket-card {
-    box-sizing: border-box;
-    background-color: #1a1a1a;
-    margin: 30px auto;
-    padding: 20px;
-    max-width: 500px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #444;
-    animation: fadeIn 1s ease-in-out;
+h1, h2, h3 {
+    color: rgb(255, 197, 53);
 }
 
-/* Form Elements */
-form label {
-    box-sizing: border-box;
-    display: block;
-    margin-top: 15px;
-    color: #eef3f0;
-}
-
-form input[type="text"],
-form select {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #12c702;
-    border-radius: 5px;
-    background-color: #333;
-    color: #f7f1f1;
-    transition: all 0.3s ease;
-}
-
-form input[type="text"]:focus,
-form select:focus {
-    border-color: #12c702;
-    background-color: #222;
-}
-
-/* Button */
-.button-primary {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #f00;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.button-primary:hover {
-    background-color: #f00;
-    transform: scale(1.05);
-}
-
-/* Footer */
-footer {
-    background-color: #222;
-    color: #aaa;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-    border-top: 1px solid #12c702;
-    padding: 10px;
-    margin-top: 20px;
-    font-size: 14px;
-    border-bottom: 1px solid #12c702;
-}
-
-/* Navigation Icons */
-nav {
-    background-color: #111;
-    padding: 10px;
-    text-align: center;
-}
-
-nav a {
-    color: #f00;
-    margin: 0 10px;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #ffffff;
-}
-
-/*hover effects for links*/
 a {
-    color: #12c702;
-    text-decoration: none;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: #004080;
 }
 
-a:hover {
-    color: #ffffff;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
 }
 
-/* Change cursor to pointer on hover for links and buttons */
-a:hover, button:hover, .button-primary:hover {
-    cursor: pointer;
+th {
+  background-color: #e0e0e0;
 }
 
-/* Khusus untuk halaman sistem_setengah_kompetisi.html */
-body#setengah-kompetisi main {
-    padding: 100px;
-}
-
-body#hasil-setengah-kompetisi .grup-section {
-    background-color: #ebe5e5;
-    border: 1px solid #12c702;
+/* ============================= */
+/*         HEADER STYLES        */
+/* ============================= */
+header h1 {
+  text-align: right;
+  font-size: 18px;
+  color: rgb(255, 197, 53);
+  padding: 10px 5px;
+  container-type: inline-size; 
+    background-color: #186375;
     border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 30px;
-    box-shadow: 0 0 10px #444;
-    animation: fadeIn 1s ease-in-out;
 }
 
-body#hasil-setengah-kompetisi .grup-section h2 {
-    color: #f00;
-    margin-bottom: 10px;
+/* ============================= */
+/*         FOOTER STYLES        */
+/* ============================= */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
 }
 
-body#hasil-setengah-kompetisi .grup-section ul {
-    list-style: none;
-    padding-left: 0;
+/* ============================= */
+/*         INDEX PAGE           */
+/* ============================= */
+body.index-page {
+  background-color: #e6f2ff;
 }
 
-body#hasil-setengah-kompetisi .grup-section ul li {
-    padding: 5px 0;
-    border-bottom: 1px solid #333;
-    color: #12c702;
+.index-page .intro {
+  text-align: center;
+  padding: 40px 20px;
 }
 
-body#hasil-setengah-kompetisi .jadwal-section {
-    background-color: #1a1a1a;
-    border: 1px solid #12c702;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 30px;
-    box-shadow: 0 0 10px #444;
-    animation: fadeIn 1s ease-in-out;
+.index-page .intro h1 {
+  font-size: 2.5em;
 }
 
-body#hasil-setengah-kompetisi .jadwal-section h3 {
-    color: #f00;
-    margin-bottom: 10px;
+/* ============================= */
+/*   SISTEM SETENGAH KOMPETISI  */
+/* ============================= */
+body.sistem-setengah-kompetisi {
+  background-color: #fffbe6;
 }
 
-body#hasil-setengah-kompetisi .jadwal-section ul {
-    list-style: none;
-    padding-left: 0;
+.sistem-setengah-kompetisi h1 {
+  color: #181717;
 }
 
-body#hasil-setengah-kompetisi .jadwal-section ul li {
-    padding: 5px 0;
-    border-bottom: 1px solid #333;
-    color: #eef3f0;
+.sistem-setengah-kompetisi .description {
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/*     HASIL SISTEM SETENGAH    */
+/* ============================= */
+body.hasil-sistem-setengah-kompetisi {
+  background-color: #f0fff0;
+}
+
+.hasil-sistem-setengah-kompetisi h1 {
+  color: #006600;
+}
+
+.hasil-sistem-setengah-kompetisi .results {
+  margin-top: 30px;
+}
+
+.hasil-sistem-setengah-kompetisi .results table {
+  background-color: #ffffff;
 }
