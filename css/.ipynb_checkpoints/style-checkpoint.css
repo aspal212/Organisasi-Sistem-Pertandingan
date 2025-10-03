@@ -1,0 +1,136 @@
+
+/* Import Font Awesome for icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+
+/* ============================= */
+/*        GLOBAL STYLES         */
+/* ============================= */
+
+header {
+    background-color: #186375;
+    border-bottom: 4px solid #b90b0b;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 20px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: rgb(255, 197, 53);
+}
+
+a {
+  text-decoration: none;
+  color: #004080;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+  background-color: #e0e0e0;
+}
+
+/* ============================= */
+/*         HEADER STYLES        */
+/* ============================= */
+header h1 {
+  text-align: right;
+  font-size: 18px;
+  color: rgb(255, 197, 53);
+  padding: 10px 5px;
+  container-type: inline-size; 
+    background-color: #186375;
+    border-radius: 5px;
+}
+
+/* ============================= */
+/*         FOOTER STYLES        */
+/* ============================= */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* ============================= */
+/*         INDEX PAGE           */
+/* ============================= */
+body.index-page {
+  background-color: #e6f2ff;
+}
+
+.index-page .intro {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.index-page .intro h1 {
+  font-size: 2.5em;
+}
+
+/* ============================= */
+/*   SISTEM SETENGAH KOMPETISI  */
+/* ============================= */
+body.sistem-setengah-kompetisi {
+  background-color: #fffbe6;
+}
+
+.sistem-setengah-kompetisi h1 {
+  color: #181717;
+}
+
+.sistem-setengah-kompetisi .description {
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/*     HASIL SISTEM SETENGAH    */
+/* ============================= */
+body.hasil-sistem-setengah-kompetisi {
+  background-color: #f0fff0;
+}
+
+.hasil-sistem-setengah-kompetisi h1 {
+  color: #006600;
+}
+
+.hasil-sistem-setengah-kompetisi .results {
+  margin-top: 30px;
+}
+
+.hasil-sistem-setengah-kompetisi .results table {
+  background-color: #ffffff;
+}
