@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnamen</title>
+    <link rel="stylesheet" href="css/style.css">
+    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
+</head>
+<body>
+    <header>
+        logo.png
+        <h1>Turnamen Nasional</h1>
+    </header>
+
+    <main class="container">
+        <section id="form-turnamen">
+            <h2>Formulir Pendaftaran</h2>
+            <form>
+                <label for="nama">Nama Peserta:</label><br>
+                <input type="text" id="nama" name="nama"><br><br>
+
+                <label for="skor">Skor Awal:</label><br>
+                <input type="number" id="skor" name="skor"><br><br>
+
+                <button type="submit"><i class="fas fa-paper-plane"></i> Kirim</button>
+            </form>
+        </section>
+
+        <section class="bracket-card">
+            <h2>Data Peserta</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Skor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Agus Imron</td>
+                        <td>95</td>
+                    </tr>
+                    <tr>
+                        <td>Siti Aminah</td>
+                        <td>88</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Turnamen Nasional. Dikembangkan oleh Agus Imron.
+    </footer>
+</body>
+</html>
+                case "gugur":
+                    namaSistem = "Gugur";
+                    break;
+                case "ganda":
+                    namaSistem = "Gugur Ganda";
+                    break;
+                case "swiss":
+                    namaSistem = "Swiss";
+                    break;
+                case "penuh":
+                    namaSistem = "Kompetisi Penuh";
+                    break;
+                case "setengah":
+                    namaSistem = "Setengah Kompetisi";
+                    break;
+                default:
+                    namaSistem = "Tidak diketahui";
+            }
+
+            localStorage.setItem("sistemPertandingan", namaSistem);
+
+            // alihkan ke halaman sistem yang sesuai
+            let halamanTujuan = "";
+            switch (kategori) {
+                case "gugur":
+                    halamanTujuan = "sistem/sistem_gugur.html";
+                    break;
+                case "ganda":
+                    halamanTujuan = "sistem/sistem_gugur_ganda.html";
+                    break;
+                case "swiss":
+                    halamanTujuan = "sistem/sistem_swiss.html";
+                    break;
+                case "penuh":
+                    halamanTujuan = "sistem/sistem_kompetisi_penuh.html";
+                    break;
+                case "setengah":
+                    halamanTujuan = "sistem/sistem_setengah_kompetisi.html";
+                    break;
+                default:
+                    alert("Sistem pertandingan tidak valid.");
+                    return;
+            }
+
+            window.location.href = halamanTujuan;
+        });
+    </script>
+</body>
+</html>
+<main>
+    <h2 id="namaTurnamen">Turnamen</h2>
+    <h3 id="sistemDipilih">Sistem: Tidak diketahui</h3>
+    <p>Masukkan peserta, bagi ke grup, lalu buat turnamen.</p>
+</main>
