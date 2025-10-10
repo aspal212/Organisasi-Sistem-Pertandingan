@@ -1,77 +1,18 @@
-abstract {
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
-  color: #333;
 }
+
 header {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 0;
-  text-align: center;
-}
-nav {
-  background-color: #333;
-}
-nav a {
-  color: white;
-  padding: 14px 20px;
-  text-decoration: none;
-  display: inline-block;
-}
-nav a:hover {
-  background-color: #575757;
-}
-main {
+  background-color: #2C2F33;
   padding: 20px;
-}
-footer {
-  background-color: #333;
+  text-align: right;
+  font-style: italic;
+  font-weight: bold;
   color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
 }
-h1, h2, h3 {
-  color: #4CAF50;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-table, th, td {
-  border: 1px solid #ddd;
-}
-th, td {
-  padding: 8px;
-  text-align: left;
-}
-tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #45a049;
-}
-form {
-  margin-bottom: 20px;
-}
-input[type="text"], input[type="number"], select {
-  width: 100%;
-  padding: 8px;
-  margin: 4px 0;
-  box-sizing: border-box;
-}
+
+/*# sourceMappingURL=style.css.map */

@@ -23,4 +23,4 @@
 │   └── default.scss
 ├── vendors/         # CSS dari pihak ketiga (jika ada)
 │   └── bootstrap.scss
-├── main.scss        # File utama yang mengimpor semua SCSS lainnya
+├── style.scss        # File utama yang mengimpor semua SCSS lainnya
