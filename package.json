@@ -1,0 +1,12 @@
+{
+  "name": "organisasi-sistem-pertandingan",
+  "version": "1.0.0",
+  "description": "Proyek ini adalah aplikasi web sederhana untuk mengelola sistem pertandingan olahraga. Mendukung beberapa format seperti sistem gugur, swiss, ganda, setengah kompetisi, dan full season.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

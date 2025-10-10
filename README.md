@@ -34,3 +34,4 @@ Organisasi Sistem Pertandingan/
 ## Catatan
 
 git push origin main (kirim perubahan ke main branch)
+sass --watch scss/style.scss:css/style.css (kompilasi scss dan css)
