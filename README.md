@@ -32,3 +32,5 @@ Organisasi Sistem Pertandingan/
 ## Fitur
 
 ## Catatan
+
+git push origin main (kirim perubahan ke main branch)
